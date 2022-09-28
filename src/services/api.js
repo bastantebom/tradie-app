@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import base from "../services/base.js";
 
 const getJobs = async () => {
@@ -10,8 +11,31 @@ const getJobs = async () => {
   });
 };
 
+const getJob = async (id) => {
+  return await base({
+    url: `/jobs/${id}`,
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+};
+
+const updateNotes = async (id, data = {}) => {
+  return await base({
+    url: `/jobs/${id}`,
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data,
+  });
+};
+
 const Api = {
   getJobs,
+  getJob,
+  updateNotes,
 };
 
 export default Api;
