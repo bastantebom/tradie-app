@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+
+# Getting Started with Tradies Job Dashboard App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -6,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm start` or `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -14,57 +15,25 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+## Basic usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. To be able to view **client details** you can click the name on each row this will open a drawer displaying the details of the client.
+![Tradies-Dashboard-Jayson-Ilagan](https://user-images.githubusercontent.com/5590282/192928146-32621a4b-862f-4b13-a036-d766d6e5085f.png)
 
-### `npm run build`
+2. To **add notes, edit notes** there is specific action button. On click it will open the drawer and listing all notes *if any* and at the bottom is a textfield if you wanted add new notes for the specific job. On editing a note you must cleck the pencil icon on the upper right of a note you wanted to edit
+![Tradies-Dashboard-Jayson-Ilagan (1)](https://user-images.githubusercontent.com/5590282/192929401-03b6fd0a-3b4f-4bb7-874a-f3c291d66c1c.png)
+<img width="418" alt="Screen Shot 2022-09-29 at 11 02 36 AM" src="https://user-images.githubusercontent.com/5590282/192929419-9ba712ae-059e-44c4-932a-7a12c3de69dc.png">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. To **update job status**, there's a **play icon**, this will open a modal with a dropdown listing all possible status to transition into, except for the current status of the job.
+![Tradies-Dashboard-Jayson-Ilagan (2)](https://user-images.githubusercontent.com/5590282/192929825-80ed82f9-d9f9-48c2-a621-1d5e5c72e32b.png)
+<img width="624" alt="Screen Shot 2022-09-29 at 11 08 04 AM" src="https://user-images.githubusercontent.com/5590282/192929853-17790ba1-8826-4736-936b-18d8a7aa1253.png">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. You can also sort on each column by clicking the header of the column you wanted to sort
+![Tradies-Dashboard-Jayson-Ilagan (3)](https://user-images.githubusercontent.com/5590282/192930149-6af2ed95-3dec-4208-b43d-8b1768238ee3.png)
 
-### `npm run eject`
+5. There is also a search which is located on the upper right of the screen
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
