@@ -44,6 +44,7 @@ export default function AddNotes({ data, setNotes }) {
     if (activeNote.id) {
       onEditNotes();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeNote]);
 
   return (

@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import base from "../services/base.js";
 
 const getJobs = async () => {
