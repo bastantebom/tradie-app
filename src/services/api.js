@@ -21,7 +21,7 @@ const getJob = async (id) => {
   });
 };
 
-const updateNotes = async (id, data = {}) => {
+const updateJob = async (id, data = {}) => {
   return await base({
     url: `/jobs/${id}`,
     method: "PUT",
@@ -35,7 +35,7 @@ const updateNotes = async (id, data = {}) => {
 const Api = {
   getJobs,
   getJob,
-  updateNotes,
+  updateJob,
 };
 
 export default Api;

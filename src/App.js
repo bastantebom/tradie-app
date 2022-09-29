@@ -5,14 +5,18 @@ import Drawer from "./component/drawer";
 import Profile from "./layout/profile";
 import Notes from "./layout/notes";
 import AddNotes from "./layout/add-notes";
-import { toHumanTime, getStatus, getStatusColor } from "./utils/";
-import { DocumentPlusIcon } from "@heroicons/react/24/solid";
+import { toHumanTime, getStatus, getStatusColor, statuses } from "./utils/";
+import { DocumentPlusIcon, PlayIcon } from "@heroicons/react/24/solid";
+import { Modal } from "./component/dialog";
 
 const App = () => {
   const [jobs, setJobs] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [openNotes, setOpenNotes] = useState(false);
   const [notes, setNotes] = useState(false);
+  const [isEditStatus, setIsEditStatus] = useState(false);
+  const [toEditJob, setToEditJob] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const clientData = useRef();
 
@@ -40,6 +44,25 @@ const App = () => {
     }
   };
 
+  const onEditStatus = (row) => {
+    setToEditJob(row.original);
+    setIsEditStatus(true);
+  };
+
+  const onHandleUpdateStatus = async (status, job) => {
+    const newStatusId = statuses.find((s) => s.value === status).id;
+    setIsLoading(true);
+    const response = await Api.updateJob(job.id, { status: newStatusId });
+    if (response) {
+      let allJobs = [...jobs];
+      const objIndex = allJobs.findIndex((obj) => obj.id === job.id);
+      allJobs[objIndex].status = response.status;
+      setJobs([...allJobs]);
+      setIsEditStatus(false);
+      setIsLoading(false);
+    }
+  };
+
   const columns = [
     {
       Header: "Name",
@@ -63,13 +86,15 @@ const App = () => {
       Header: "Status",
       accessor: "status",
       Cell: (props) => (
-        <p
-          className={`rounded-full p-2 text-center text-white ${getStatusColor(
-            props.value
-          )}`}
-        >
-          {getStatus(props.value)}
-        </p>
+        <div onClick={() => onEditStatus(props.row)}>
+          <p
+            className={`rounded-full p-2 text-center text-white ${getStatusColor(
+              props.value
+            )}`}
+          >
+            {getStatus(props.value)}
+          </p>
+        </div>
       ),
     },
     {
@@ -81,8 +106,13 @@ const App = () => {
       Header: "Actions",
       accessor: "id",
       Cell: (props) => (
-        <div onClick={() => onClickNotes(props.row)}>
-          <DocumentPlusIcon className="w-5 fill-sky-700" />
+        <div className="flex flex-row justify-between items-center">
+          <div onClick={() => onClickNotes(props.row)}>
+            <DocumentPlusIcon className="w-5 fill-sky-700 hover:fill-sky-400" />
+          </div>
+          <div onClick={() => onEditStatus(props.row)}>
+            <PlayIcon className="w-5 fill-sky-700 hover:fill-sky-400" />
+          </div>
         </div>
       ),
     },
@@ -94,6 +124,15 @@ const App = () => {
 
   return (
     <>
+      {toEditJob && (
+        <Modal
+          isOpen={isEditStatus}
+          setIsOpen={setIsEditStatus}
+          data={toEditJob}
+          handleUpdate={onHandleUpdateStatus}
+          isLoading={isLoading}
+        />
+      )}
       <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
         {clientData.current && <Profile data={clientData.current ?? {}} />}
       </Drawer>

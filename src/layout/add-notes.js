@@ -29,7 +29,7 @@ export default function AddNotes({ data, setNotes }) {
       }
 
       setLoading(true);
-      const response = await Api.updateNotes(data.id, { notes: allNotes });
+      const response = await Api.updateJob(data.id, { notes: allNotes });
       setNotes(response);
       setCurrentNote("");
       setLoading(false);

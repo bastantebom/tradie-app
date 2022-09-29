@@ -1,6 +1,6 @@
 import { DateTime } from "luxon";
 
-const statuses = [
+export const statuses = [
   { id: 1, value: "Scheduled" },
   { id: 2, value: "Active" },
   { id: 3, value: "Invoicing" },
