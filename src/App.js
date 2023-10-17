@@ -20,7 +20,7 @@ const App = () => {
 
   const clientData = useRef();
 
-  const onGetJobs = async () => {
+  const onGetJobsdsds = async () => {
     const response = await Api.getJobs();
     if (response) {
       setJobs(response);
